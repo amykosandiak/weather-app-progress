@@ -13,6 +13,7 @@
       crossorigin="anonymous"
     />
     <script src="https://kit.fontawesome.com/fb3b8129f3.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
       <div class ="container">
@@ -36,7 +37,7 @@
     <div class="col-md-8">
       <div class="card-body">
           <div class="bg-light p-2" style="--bs-bg-opacity: .8;">
-        <h5 class="card-title" id="location">Location <i class="fas fa-map-marker-alt"></i></h5>
+        <h5 class="current-card" id="location">Location <i class="fas fa-map-marker-alt"></i></h5>
           <p class="card-text" id="todaysDate"><br></p>
           <p class="card-text-today" id="todaysTemp">Current temperature</p>
           <p class="minToday" id="todaysMinimum">Minimum</p>
@@ -120,4 +121,5 @@
     </div>
     <center><a href=https://github.com/amykosandiak/weather-app-progress>Open source code</a> by Amy Kosandiak
   </body>
+  <link rel="stylesheet" href="src/index.js" />
 </html>
