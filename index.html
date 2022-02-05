@@ -15,14 +15,14 @@
     <script src="https://kit.fontawesome.com/fb3b8129f3.js" crossorigin="anonymous"></script>
   </head>
   <body>
-      <div class = "container">
+      <div class ="container">
     <h1>Weather Forecast</h1><p>
        
     
         <form>
   <div class="form-group">
-    <label for="exampleInputEmail1"></label>
-    <input type="search" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Where in the world...?">
+    <label for="citySearch"></label>
+    <input type="search" class="form-control" id="citySearch" aria-describedby="emailHelp" placeholder="Where in the world...?">
 <button type="submit" class="btn btn-primary" autocomplete="off">Search location</button></div>
 </form><p>
     <div class="current">
@@ -36,8 +36,22 @@
     <div class="col-md-8">
       <div class="card-body">
           <div class="bg-light p-2" style="--bs-bg-opacity: .8;">
-        <h5 class="card-title">Location <i class="fas fa-map-marker-alt"></i></h5>
-        <p class="card-text">Today<br>Minimum<br>Maximum<br>Chance of rain<br>Written description of weather</p>
+        <h5 class="card-title" id=location>Location <i class="fas fa-map-marker-alt"></i></h5>
+          <p class="card-text" id="todaysDate"><br></p>
+          <p class="card-text-today" id="todaysTemp">Current temperature</p>
+          <p class="minToday" id="todaysMinimum">Minimum</p>
+          <p class="maxToday" id="todaysMaximum">Maximum</p>
+            <p class="rainToday" id="todaysRain">Chance of rain</p>
+              <p class="descriptionToday" id="todaysDescription"><br>Written description of weather</p>
+        </p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
         </p>
       </div>
     </div>
