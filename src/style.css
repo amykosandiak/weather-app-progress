@@ -1,0 +1,73 @@
+body {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(253, 239, 132) 0%,
+    rgb(247, 198, 169) 54.2%,
+    rgb(21, 186, 196) 100.3%
+  );
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-family: "PT mono", monospace;
+  opacity: 80%;
+  padding: 25px;
+  text-shadow: 1px 1px 2px;
+}
+
+.form-control {
+  text-align: center;
+}
+
+.btn.btn-primary {
+  display: block;
+  margin: 0 auto;
+  background-color: rgb(21, 186, 196);
+  border: rgb(21, 186, 196);
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.btn.btn-primary:hover {
+  background-color: #fff;
+  color: rgb(21, 186, 196);
+}
+
+.current {
+  color: rgb(21, 186, 196);
+}
+
+.forecast {
+  display: block;
+  margin: 0 auto;
+}
+
+.current-weather {
+  display: block;
+  margin: 0 auto;
+}
+
+.fas.fa-sun,
+.fas.fa-wind,
+.fas.fa-sun-wind,
+.fas.fa-cloud-sun,
+.fas.fa-cloud-sun-rain,
+.fas.fa-cloud-rain {
+  color: rgb(21, 186, 196);
+  font-size: 45px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.fas.fa-map-marker-alt {
+  color: rgb(21, 186, 196);
+  font-size: 25px;
+  text-align: center;
+}
+
+.fas.fa-bolt {
+  font-size: 120px;
+  margin-top: 75px;
+  margin-left: 50px;
+}
