@@ -50,12 +50,18 @@ function showWeather(response) {
   )}°C)`;
 
   document.querySelector(
-    "#todaysPrecipitation"
-  ).innerHTML = `Today ${Math.round(response.data.main.precipitation.value)}mm`;
+    "#todaysWindSpeed"
+  ).innerHTML = `Wind speed is ${Math.round(
+    response.data.wind.speed
+  )} metres/second`;
 
   document.querySelector(
     "#todaysHumidity"
-  ).innerHTML = `Humidity is ${Math.round(response.data.main.humidity)}`;
+  ).innerHTML = `Humidity is ${response.data.main.humidity}%`;
+
+  document.querySelector(
+    "#todaysDesciption"
+  ).innerHTML = `It's currently ${response.data.weather[0].description}`;
 }
 
 function search(event) {
