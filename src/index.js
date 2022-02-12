@@ -1,20 +1,3 @@
-let apiKey = "afe09f7274f1df9fa9fce1bf37473de0";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Adelaide&appid=${apiKey}&units=metric`;
-
-console.log(apiUrl);
-
-function askForCountry() {
-  let country = prompt("What's your country?").toLowerCase().trim();
-
-  if (country === "brazil" || country === "portugal") {
-    alert("You speak Portuguese! Boa pá!");
-  } else {
-    alert("You speak another language");
-  }
-}
-
-askForCountry();
-
 let now = new Date();
 
 let date = now.getDate();
@@ -56,3 +39,25 @@ console.log(year);
 console.log(month);
 
 let todaysDateDisplay = `${day} ${month} ${date}, ${year}`;
+
+function showWeather(response) {
+  let citySearch = (document.querySelector("#citySearch").innerHTML =
+    response.data.name);
+  document.querySelector("#todaysTemp").innerHTML = `${Math.round(
+    response.data.main.temp
+  )}°C`;
+}
+
+function search(event) {
+  event.preventDefault();
+  let city = document.querySelector("#citySearch").value;
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+
+  let location = document.querySelector("#location");
+  location.innerHTML = `${citySearch.value}<br> ${todaysDate}`;
+}
+
+let searchButton = document.querySelector("#searchLocation");
+searchButton.addEventListener("click", search);
