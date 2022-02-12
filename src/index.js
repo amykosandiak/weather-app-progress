@@ -41,23 +41,31 @@ console.log(month);
 let todaysDate = `${day} ${month} ${date}, ${year}<br>`;
 
 function showWeather(response) {
-  let citySearch = (document.querySelector("#citySearch").innerHTML =
-    response.data.name);
-  document.querySelector("#todaysTemp").innerHTML = `${Math.round(
-    response.data.main.temp
-  )}°C`;
+  let temperatureElement = document.querySelector("#todaysTemp");
+  let cityElement = document.querySelector("#citySearch");
+  let descriptionElement = document.querySelector("#todaysDescription");
+
+  let dateElement = document.querySelector("#todaysDate");
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  dateElement.innerHTML = todaysDate(response.data.dt * 1000);
 }
 
-function search(event) {
-  event.preventDefault();
-  let city = document.querySelector("#citySearch").value;
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+function search(city) {
+  let apiKey = "afe09f7274f1df9fa9fce1bf37473de0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
-
-  let location = document.querySelector("#location");
-  location.innerHTML = `${citySearch.value}<br> ${todaysDate}`;
 }
 
-let searchButton = document.querySelector("#searchLocation");
-searchButton.addEventListener("click", search);
+function clickSubmit(event) {
+  event.preventDefault();
+  let citySearchElement = document.querySelector("#citySearch");
+  search(citySearchElement.value);
+}
+
+let form = document.querySelector("#searchLocation");
+form.addEventListener("submit", clickSubmit);
+
+search("Adelaide");
