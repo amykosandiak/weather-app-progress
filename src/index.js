@@ -38,22 +38,24 @@ console.log(day);
 console.log(year);
 console.log(month);
 
-let todaysDateDisplay = `${day} ${month} ${date}, ${year}`;
+let todaysDate = `${day} ${month} ${date}, ${year}`;
 
 function showWeather(response) {
-  let citySearch = (document.querySelector("#citySearch").innerHTML =
-    response.data.name);
+  document.querySelector("#citySearch").innerHTML = response.data.name;
+
   document.querySelector("#todaysTemp").innerHTML = `Currently ${Math.round(
     response.data.main.temp
-  )}°C`;
-  document.querySelector(
-    "#todaysFeelsLike"
-  ).innerHTML = `(and probably feels like ${Math.round(
+  )}°C (and probably feels like ${Math.round(
     response.data.main.feels_like
   )}°C)`;
+
+  document.querySelector(
+    "#todaysPrecipitation"
+  ).innerHTML = `Today ${Math.round(response.data.main.precipitation.value)}mm`;
+
   document.querySelector(
     "#todaysHumidity"
-  ).innerHTML = `Humidity is ${response.data.humidity.value}`;
+  ).innerHTML = `Humidity is ${Math.round(response.data.main.humidity)}`;
 }
 
 function search(event) {
