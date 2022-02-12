@@ -43,9 +43,17 @@ let todaysDateDisplay = `${day} ${month} ${date}, ${year}`;
 function showWeather(response) {
   let citySearch = (document.querySelector("#citySearch").innerHTML =
     response.data.name);
-  document.querySelector("#todaysTemp").innerHTML = `${Math.round(
+  document.querySelector("#todaysTemp").innerHTML = `Currently ${Math.round(
     response.data.main.temp
   )}°C`;
+  document.querySelector(
+    "#todaysFeelsLike"
+  ).innerHTML = `(and probably feels like ${Math.round(
+    response.data.main.feels_like
+  )}°C)`;
+  document.querySelector(
+    "#todaysHumidity"
+  ).innerHTML = `Humidity is ${response.data.humidity.value}`;
 }
 
 function search(event) {
