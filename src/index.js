@@ -60,8 +60,14 @@ function showWeather(response) {
   ).innerHTML = `Humidity is ${response.data.main.humidity}%`;
 
   document.querySelector(
-    "#todaysDesciption"
-  ).innerHTML = `It's currently ${response.data.weather[0].description}`;
+    "#todaysDescription"
+  ).innerHTML = `Currently: ${response.data.weather[0].description}`;
+
+  currentWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(event) {
@@ -77,3 +83,5 @@ function search(event) {
 
 let searchButton = document.querySelector("#searchLocation");
 searchButton.addEventListener("click", search);
+
+let currentWeatherIcon = document.querySelector("#currentIcon");
